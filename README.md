@@ -1,0 +1,1 @@
+# tsql-coding-patterns
