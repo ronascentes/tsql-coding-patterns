@@ -2,10 +2,10 @@
 A collection of amazing coding patterns in no particular order.
 
 ## Check before proceding
-Explicity validation to ensure the object, variable or component is in the correct state.
+Explicity validation to ensure the object, variable or component is in the expected state.
 
 ### Check if a object exists
-You might want to check if a object already exist before creating it. You can use this patterns for table, procedures or any object in the database
+You might want to check if a object already exist before creating it. You can use this patterns for table, procedures or any object in the database.
 ```sql
 IF EXISTS (SELECT [object_id] FROM tempdb.sys.objects (NOLOCK) WHERE [object_id] = OBJECT_ID('tempdb.dbo.#<table_name>'))      
 	DROP TABLE #<table_name>;
@@ -18,7 +18,7 @@ IF EXISTS (SELECT CASE WHEN DATABASEPROPERTYEX(name, 'Status') = 'ONLINE' THEN 1
 	PRINT N'<db_name> is available';
 ```
 ### Check if is primary node
-Check if the current node of a cluster is the primary replica of the Availability Group
+Check if the current replica of a Availability Group is the primary one.  
 ```sql
 IF sys.fn_hadr_is_primary_replica ('<db_name>') = 
 ```
@@ -40,7 +40,7 @@ General programming practices and patterns
 DECLARE @NewLineChar AS CHAR(2) = CHAR(13) + CHAR(10);
 ```
 
-Error handling
+### Error handling
 ```sql
 SET NOCOUNT, XACT_ABORT ON;  
 DECLARE @ErrorMessage NVARCHAR(4000), @rows INT;  
@@ -60,4 +60,8 @@ BEGIN CATCH
 		COMMIT;   
 	THROW;  
 END CATCH;
+```
+
+## Data manipulation
+```sql
 ```
