@@ -2,7 +2,7 @@
 A collection of amazing coding patterns in no particular order.
 
 ## Check before proceding
-Explicity validation to ensure the object, variable or component is in the expected state.
+Explicit validation to ensure the object, variable or component is in the expected state.
 
 ### Check if a object exists
 You might want to check if a object already exist before creating it. You can use this patterns for table, procedures or any object in the database.
@@ -41,6 +41,7 @@ DECLARE @NewLineChar AS CHAR(2) = CHAR(13) + CHAR(10);
 ```
 
 ### Error handling
+A elegant sample of using error handling in T-SQL with `TRY/ CATCH` and the explicit transactions statements: `BEGIN TRANSACTION`, `COMMIT` and `ROLLBACK`. You should set XACT_ABORT to ON to raise a run-time error so the entire transaction is terminated and rolled back.
 ```sql
 SET NOCOUNT, XACT_ABORT ON;  
 DECLARE @ErrorMessage NVARCHAR(4000), @rows INT;  
@@ -61,6 +62,9 @@ BEGIN CATCH
 	THROW;  
 END CATCH;
 ```
+### Log into errorlog
+
+### Use the database context
 
 ## Data manipulation
 ```sql
